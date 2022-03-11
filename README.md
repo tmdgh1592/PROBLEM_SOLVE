@@ -2,8 +2,9 @@
 
 ### 현재 티어
 
-[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=chltmdgh1592)]
-(https://solved.ac/chltmdgh1592)
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=chltmdgh1592)](https://solved.ac/chltmdgh1592)
+
+<br>
 
 ### 코딩테스트 준비 알고리즘 공부 방법
 
@@ -42,5 +43,5 @@
 4. 그래프 이론
 5. 중급 DP & 문자열
 
-
+<br><br>
 + 참고 블로그 https://covenant.tistory.com/220
