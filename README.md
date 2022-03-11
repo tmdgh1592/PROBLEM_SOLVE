@@ -1,5 +1,10 @@
 # BAEKJOON-PYTHON
 
+### 현재 티어
+
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=chltmdgh1592)]
+(https://solved.ac/chltmdgh1592)
+
 ### 코딩테스트 준비 알고리즘 공부 방법
 
 1. Python, Java, C/C++ 등의 자신이 자신 있는 언어의 기본문법 공부
