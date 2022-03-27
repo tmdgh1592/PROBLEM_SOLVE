@@ -24,7 +24,6 @@ def topology(dest):
             c = cost[i] + max_cost[now]
             max_cost[i] = max(max_cost[i], c)
 
-    # print(max_cost)
     return max_cost[dest]
 
 
