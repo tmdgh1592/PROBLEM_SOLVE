@@ -1,7 +1,6 @@
 n, m = map(int, input().split())
 arr = list(sorted(set(map(int, input().split()))))
 stack = []
-print(arr)
 def permutation(n, m):
     if len(stack) == m:
         print(*stack)
