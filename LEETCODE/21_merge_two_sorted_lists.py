@@ -14,7 +14,7 @@ class Solution:
             if l1:
                 my_list.append(l1.val)
                 l1 = l1.next
-            elif l2:
+            else:
                 my_list.append(l2.val)
                 l2 = l2.next
 
