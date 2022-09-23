@@ -21,7 +21,7 @@ def update(left, right, node, idx, val):
     if left == right == idx:
         tree[node] = val
         return
-    if not (left <= node <= right): return
+    if not (left <= idx <= right): return
     
     mid = (left + right) // 2
     update(left, mid, node*2, idx, val)
