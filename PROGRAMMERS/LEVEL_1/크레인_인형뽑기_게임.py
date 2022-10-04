@@ -1,24 +1,19 @@
 def solution(board, moves):
-    my_stack = [0]  # 인형을 담을 바구니 Stack
-    n = len(board)  # 보드 N X N
-    count = 0
-
+    answer = 0
+    
+    stack = []
     for move in moves:
         move -= 1
-
-        # 선택된 인형을 집어서 Stack에 담는다.
-        for i in range(n):
+        for i in range(len(board)):
             if board[i][move] != 0:
-                my_stack.append(board[i][move])
+                stack.append(board[i][move])
                 board[i][move] = 0
                 break
-
-        top = len(my_stack)-1
-
-        if len(my_stack) > 1:
-            if my_stack[top] == my_stack[top-1]:
-                my_stack.pop()
-                my_stack.pop()
-                count += 2
-
-    return count
+        
+        if len(stack) >= 2:
+            if stack[-1] == stack[-2]:
+                answer += 2
+                stack.pop()
+                stack.pop()
+                
+    return answer
