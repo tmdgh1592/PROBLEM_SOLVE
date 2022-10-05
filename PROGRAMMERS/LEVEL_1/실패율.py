@@ -20,5 +20,3 @@ def solution(n, stages):
     answer = [i for _, i in answer]
     
     return answer
-
-print(solution(5, [1,1,1,3,4]))
