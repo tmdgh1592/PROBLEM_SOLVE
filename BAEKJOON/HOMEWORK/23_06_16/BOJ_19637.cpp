@@ -1,16 +1,22 @@
 #include <bits/stdc++.h>
 #define endl "\n"
-#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define rep(i, a, b) for(auto i = a; i < b; ++i)
+#define rrep(i, a, b) for(auto i = a; i > b; --i)
 #define REP(i, a, b) for(auto i = a; i <= b; ++i)
+#define RREP(i, a, b) for(auto i = a; i >= b; --i)
 #define pii pair<int, int>
 #define all(v) (v).begin(), (v).end()
 #define pb push_back
 #define INF numeric_limits<int>::max()
-#define mp make_pair
-
+#define sz size()
+#define PIV (1 << 20)
 using namespace std;
 
+#ifdef ONLINE_JUDGE
+constexpr bool ndebug = true;
+#else
+constexpr bool ndebug = false;
+#endif
 #define FAST_IO \
     if constexpr (ndebug) { cin.tie(nullptr); ios::sync_with_stdio(false); }
 #define debug(x) \
@@ -23,46 +29,28 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 
+int n, m;
+string s;
+int p;
+multimap<int, string> mp;
+
 int main(){
-    FAST;
+    FAST_IO;
 #ifndef ONLINE_JUDGE
     clock_t start = clock();
     freopen("input.txt", "r", stdin);
 #endif
 
-int n, m;
-cin >> n >> m;
-vector<int> scores;
-vector<string> rates;
-
-rep(i, 0, n) {
-    string rate;
-    int value;
-    cin >> rate >> value;
-    
-    scores.pb(value);
-    rates.pb(rate);
-}
-
-rep(i, 0, m) {
-    int score;
-    int l = 0, h = n - 1;
-    int mid = -1;
-    cin >> score;
-    
-    while(l <= h) {
-        mid = (l + h) / 2;
-
-        if (score <= scores[mid]) {
-            h = mid - 1;
-        } else {
-            l = mid + 1;
-        }
+    cin >> n >> m;
+    rep (i, 0, n) {
+        cin >> s >> p;
+        mp.insert({p, s});
     }
 
-    cout << rates[l] << endl;
-}
-
+    rep (i, 0, m) {
+        cin >> p;
+        cout << mp.lower_bound(p)->second << endl;
+    }
 
 #ifndef ONLINE_JUDGE
     cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;
