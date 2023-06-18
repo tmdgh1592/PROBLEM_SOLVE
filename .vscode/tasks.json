@@ -1,23 +1,26 @@
 {
     "version": "2.0.0",
     "tasks": [
-      {
-        "type": "shell",
-        "label": "C/C++: g++ build active file",
-        "command": "/usr/bin/g++",
-        "args": [
-          "-g",
-          "${file}",
-          "-o",
-          "${fileDirname}/${fileBasenameNoExtension}",
-          "&&", // 앞의 명령어가 성공하면
-          "${fileDirname}/${fileBasenameNoExtension}" //파일을 실행
-        ],
-        "options": {
-          "cwd": "${workspaceFolder}"
-        },
-        "problemMatcher": ["$gcc"],
-        "group": "build"
-      }
+        {
+            "type": "shell",
+            "label": "C/C++: g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-std=c++11",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "&&",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
     ]
-  }
+}
