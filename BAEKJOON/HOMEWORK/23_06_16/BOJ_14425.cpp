@@ -29,7 +29,9 @@ constexpr bool ndebug = false;
 typedef long long ll;
 typedef unsigned long long ull;
 
-
+int n, m, res;
+string s;
+set<string> ss;
 
 int main(){
     FAST_IO;
@@ -38,7 +40,18 @@ int main(){
     freopen("input.txt", "r", stdin);
 #endif
 
-    
+    cin >> n >> m;
+    rep(i, 0, n) {
+        cin >> s;
+        ss.insert(s); 
+    }
+
+    rep(i, 0, m) {
+        cin >> s;
+        if (ss.find(s) != ss.end()) res++;
+    }
+
+    cout << res;
 
 #ifndef ONLINE_JUDGE
     cout << endl << "elapsed time: " << static_cast<double>(clock() - start) / CLOCKS_PER_SEC << "ms" << endl;
