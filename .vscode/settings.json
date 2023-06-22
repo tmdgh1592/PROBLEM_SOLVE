@@ -73,6 +73,9 @@
     "__string": "cpp",
     "compare": "cpp",
     "concepts": "cpp",
-    "regex": "cpp"
+    "regex": "cpp",
+    "list": "cpp",
+    "unordered_set": "cpp",
+    "valarray": "cpp"
   }
 }
