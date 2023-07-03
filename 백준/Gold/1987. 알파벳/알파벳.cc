@@ -32,7 +32,6 @@ typedef unsigned long long ull;
 int n, m, ans;
 string line;
 char graph[21][21];
-bool visited[21][21];
 bool checked[1000];
 pii opers[4] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
@@ -47,16 +46,13 @@ void f(int x, int y, int cnt) {
         int nx = x + dx, ny = y + dy;
 
         if (!in_range(nx, ny)) continue;
-        if (visited[nx][ny]) continue;
         
         char& next_char = graph[nx][ny];
         if (checked[next_char]) continue;
 
         checked[next_char] = true;
-        visited[nx][ny] = true;
         f(nx, ny, cnt + 1);
         checked[next_char] = false;
-        visited[nx][ny] = false;
     }
 }
 
@@ -73,7 +69,6 @@ int main(){
         rep(j, 0, m) graph[i + 1][j + 1] = line[j];
     }
 
-    visited[1][1] = 1;
     checked[graph[1][1]] = 1;
     f(1, 1, 1);
     cout << ans << endl;
