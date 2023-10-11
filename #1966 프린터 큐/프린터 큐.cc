@@ -17,19 +17,8 @@ typedef long long ll;
 typedef unsigned long long ull;
 
 int t;
-int n, want_index;
-int x;
+int n, want_seq, x;
 deque<pii> q;
-
-bool is_bigger_than(int priority) {
-    rep(i, 0, q.sz) {
-        auto& [pri, idx] = q[i];
-        if (pri > priority) {
-            return true;
-        }
-    }
-    return false;
-}
 
 int main(){
     FAST_IO;
@@ -39,29 +28,39 @@ int main(){
 #endif
 
     cin >> t;
-    rep(i, 0, t) {
+    while(t--) {
+        cin >> n >> want_seq;
         q.clear();
-        cin >> n >> want_index;
-        rep(j, 0, n) {
+        int res = 0;
+        rep(i, 0, n) {
             cin >> x;
-            q.pb({x, j});
+            q.pb({x, i});
         }
 
-        int cnt = 0;
+        // 더 큰 값이 있으면
+        // queue의 뒤로 보내기
+        // 없으면 pop 해서 want_seq인지 비교
         while(true) {
-            auto [priority, idx] = q.front();
-            if (is_bigger_than(priority)) {
-                q.pb({priority, idx});
-                q.pop_front();
-            } else {
-                q.pop_front();
-                cnt++;
-                if (idx == want_index) {
-                    cout << cnt << endl;
+            auto [value, seq] = q.front();
+            bool found_bigger = 0;
+
+            for (auto [valuee, seqq] : q) {
+                if (valuee > value) {
+                    q.pb({value, seq});
+                    q.pop_front();
+                    found_bigger = 1;
                     break;
                 }
             }
-       }
+            if(!found_bigger) {
+                res++;
+                q.pop_front();
+                if (seq == want_seq) {
+                    cout << res << endl;
+                    break;
+                }
+            }
+        }
     }
 
 #ifndef ONLINE_JUDGE
