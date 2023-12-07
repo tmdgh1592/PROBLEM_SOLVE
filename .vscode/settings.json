@@ -76,6 +76,14 @@
     "regex": "cpp",
     "list": "cpp",
     "unordered_set": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "filesystem": "cpp",
+    "forward_list": "cpp",
+    "any": "cpp",
+    "charconv": "cpp",
+    "scoped_allocator": "cpp",
+    "__memory": "cpp",
+    "span": "cpp",
+    "typeindex": "cpp"
   }
 }
